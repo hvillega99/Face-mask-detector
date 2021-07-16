@@ -1,2 +1,2 @@
 # Face mask detector
-Computer vision and machine learning project that recognizes if a person wears their face mask from a photo.
+This project consists of the development of an artificial vision and machine learning program capable of recognizing whether a person is wearing a mask from a photo.
