@@ -19,6 +19,6 @@ class FaceProcessor:
     
     def markFaces(self, coordList, img, color):
         for (x,y,w,h) in coordList:
-            cv.rectangle(img,(x,y),(x+w,y+h),color,thickness=1)
+            cv.rectangle(img,(x,y),(x+w,y+h),color,thickness=2)
         return img
 
