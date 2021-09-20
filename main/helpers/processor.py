@@ -9,7 +9,7 @@ class FaceProcessor:
     def detectFaces(self, img):
         return self.haar_cascade.detectMultiScale(img, scaleFactor=1.1, minNeighbors=8)
 
-    def cropFaces(self, coordList, img):
+    def getFacesProcessed(self, coordList, img):
         faceList = []
         for (x,y,w,h) in coordList:
             face = img[y:y+h,x:x+w]
@@ -19,6 +19,6 @@ class FaceProcessor:
     
     def markFaces(self, coordList, img, color):
         for (x,y,w,h) in coordList:
-            cv.rectangle(img,(x,y),(x+w,y+h),color,thickness=2)
+            cv.rectangle(img,(x,y),(x+w,y+h),color,thickness=1)
         return img
 
