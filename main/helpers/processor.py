@@ -14,7 +14,6 @@ class FaceProcessor:
         faceList = []
         for (x,y,w,h) in coordList:
             face = img[y:y+h,x:x+w]
-            face = cv.cvtColor(face, cv.COLOR_BGR2RGB)
             faceResized = cv.resize(face, (150, 200), interpolation = cv.INTER_CUBIC)
             faceArr = asanyarray(faceResized).reshape(-1)
             faceList.append(faceArr)
