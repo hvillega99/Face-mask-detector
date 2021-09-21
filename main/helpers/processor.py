@@ -1,6 +1,7 @@
 import cv2 as cv
 import os
 from django.conf import settings
+from numpy import asanyarray, array
 
 class FaceProcessor:
     def __init__(self):
@@ -13,12 +14,17 @@ class FaceProcessor:
         faceList = []
         for (x,y,w,h) in coordList:
             face = img[y:y+h,x:x+w]
+            face = cv.cvtColor(face, cv.COLOR_BGR2RGB)
             faceResized = cv.resize(face, (150, 200), interpolation = cv.INTER_CUBIC)
-            faceList.append(faceResized)
-        return faceList
+            faceArr = asanyarray(faceResized).reshape(-1)
+            faceList.append(faceArr)
+        return array(faceList)
     
     def markFaces(self, coordList, img, color):
-        for (x,y,w,h) in coordList:
-            cv.rectangle(img,(x,y),(x+w,y+h),color,thickness=2)
+        x,y,w,h = coordList
+        cv.rectangle(img,(x,y),(x+w,y+h),color,thickness=2)
+        """ for (x,y,w,h) in coordList:
+            cv.rectangle(img,(x,y),(x+w,y+h),color,thickness=2) """
         return img
+    
 
