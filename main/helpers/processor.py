@@ -22,12 +22,12 @@ class FaceProcessor:
     def markFaces(self, coordList, img, color):
         x,y,w,h = coordList
         cv.rectangle(img,(x,y),(x+w,y+h),color,thickness=2)
-        """ if (color == (0,0,255)):
+        if (color == (0,0,255)):
             cv.putText(img, '{}'.format('WITHOUT MASK'),(x,y-5),1,1.5,(0,0,255),2,cv.LINE_AA)
             cv.rectangle(img,(x,y),(x+w,y+h),color,thickness=2)
         else:
             cv.putText(img, '{}'.format('WITH MASK'),(x,y-5),1,1.5,(0,255,0),2,cv.LINE_AA)
-            cv.rectangle(img,(x,y),(x+w,y+h),color,thickness=2) """
+            cv.rectangle(img,(x,y),(x+w,y+h),color,thickness=2)
         return img
     
 
